@@ -1,45 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemini Advanced</title>
-
+    <title>Интерфейс чата</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Gemini Advanced</h1>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="chat-title">
+                <h1>Чат</h1>
+            </div>
+            <div class="chat-buttons">
+                <button class="chat-button"><i class="fas fa-bars"></i></button>
+                <button class="chat-button"><i class="fas fa-search"></i></button>
+                <button class="chat-button"><i class="fas fa-ellipsis-h"></i></button>
+            </div>
         </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <section class="recent">
-                <h2>Recent</h2>
-                <div class="items">
-                    </div>
-            </section>
-
-            <section class="tools">
-                <h2>Tools</h2>
-                <div class="buttons">
-                    <button class="generate-image-button">Generate a fantastical image</button>
-                    <button class="write-html-button">Help me write HTML, CSS, and JS</button>
-                    <button class="create-color-palette-button">Create a CSS color palette from an image</button>
-                    <button class="inspire-image-button">Inspire me with a new image</button>
-                </div>
-            </section>
+        <div class="chat-messages">
+            <div class="chat-message chat-message-incoming">
+                <div class="chat-message-author">Бот Gemini</div>
+                <div class="chat-message-text">Привет, Virt! Как я могу помочь тебе сегодня?</div>
+            </div>
+            <div class="chat-message chat-message-outgoing">
+                <div class="chat-message-author">Вы</div>
+                <div class="chat-message-text">Привет! Я хочу узнать больше о возможностях Gemini.</div>
+            </div>
+            </div>
+        <div class="chat-input">
+            <input type="text" class="chat-input-field" placeholder="Введите сообщение">
+            <button class="chat-input-button"><i class="fas fa-paper-plane"></i></button>
+            <button class="chat-input-button"><i class="fas fa-paperclip"></i></button>
         </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Gemini Advanced</p>
-        </div>
-    </footer>
-
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
