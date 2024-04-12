@@ -1,48 +1,63 @@
-// Function to fetch recent items
-function fetchRecentItems() {
-  // Replace with your actual API call
-  const items = [
-    {
-      title: "Bardの紹介(Bado no Sh...",
-      description: "How can I help you today?"
-    },
-    {
-      title: "Image Processing Error",
-      description: ""
-    },
-    {
-      title: "Telethon для бота-пар...",
-      description: ""
-    },
-    {
-      title: "Aiogram Error Resolved...",
-      description: ""
-    },
-    {
-      title: "Bard: Code, write, translate...",
-      description: "Generate different creative text formats,  like poems, code, scripts, musical pieces, email, letters, etc. I will try my best to fulfill all your requirements."
+// Функция для отправки сообщения
+function sendMessage() {
+    const messageText = document.querySelector('.chat-input-field').value;
+    if (messageText.trim()) {
+        addMessageToChat('Вы', messageText, 'outgoing');
+        // Здесь вы можете добавить логику для отправки сообщения на сервер или чат-бот (например, с помощью AJAX)
+
+        // Очистить поле ввода
+        document.querySelector('.chat-input-field').value = '';
+
+        // Сгенерировать ответ чат-бота (пример)
+        const botResponse = generateBotResponse(messageText);
+        setTimeout(() => addMessageToChat('Бот Gemini', botResponse, 'incoming'), 1000);
     }
-  ];
-
-  // Update the UI with fetched items
-  const itemsContainer = document.querySelector('.recent .items');
-  itemsContainer.innerHTML = ''; // Clear existing items
-
-  items.forEach(item => {
-    const itemElement = document.createElement('div');
-    itemElement.classList.add('item');
-    itemElement.innerHTML = `<h3>${item.title}</h3><p>${item.description}</p>`;
-    itemsContainer.appendChild(itemElement);
-  });
 }
 
-// Call the function to fetch items on page load
-fetchRecentItems();
+// Функция для добавления сообщения в чат
+function addMessageToChat(author, message, type) {
+    const chatMessages = document.querySelector('.chat-messages');
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('chat-message', `chat-message-${type}`);
 
-// Add event listeners for buttons (replace with your functionality)
-const generateImageButton = document.querySelector('.generate-image-button');
-generateImageButton.addEventListener('click', function() {
-  // Implement your image generation logic here
+    const authorElement = document.createElement('div');
+    authorElement.classList.add('chat-message-author');
+    authorElement.textContent = author;
+
+    const textElement = document.createElement('div');
+    textElement.classList.add('chat-message-text');
+    textElement.textContent = message;
+
+    messageElement.appendChild(authorElement);
+    messageElement.appendChild(textElement);
+    chatMessages.appendChild(messageElement);
+
+    // Прокрутить чат к последнему сообщению
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Пример функции для генерации ответа чат-бота (вы можете заменить ее своим чат-ботом)
+function generateBotResponse(messageText) {
+    switch (messageText.toLowerCase()) {
+        case 'привет':
+            return 'Привет! Чем я могу тебе помочь?';
+        case 'как дела?':
+            return 'У меня всё хорошо, спасибо! А как у тебя?';
+        case 'что ты умеешь?':
+            return 'Я могу отвечать на вопросы, генерировать текст, переводить языки и многое другое. Чем я могу тебе помочь?';
+        default:
+            return 'Извини, я не совсем понимаю, что ты имеешь в виду. Пожалуйста, перефразируй свой вопрос.';
+    }
+}
+
+// Обработчик события нажатия кнопки отправки
+const sendButton = document.querySelector('.chat-input-button');
+sendButton.addEventListener('click', sendMessage);
+
+// Обработчик события нажатия клавиши Enter в поле ввода
+const inputField = document.querySelector('.chat-input-field');
+inputField.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
 });
-
-// ... add event listeners for other buttons
