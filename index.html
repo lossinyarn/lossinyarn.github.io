@@ -3,37 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Интерфейс чата</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Gemini Chat Interface</title>
+    <style>
+        /* Add your CSS styling here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .sidebar {
+            /* Styling for sidebar */
+        }
+        .chat-container {
+            /* Styling for chat container */
+        }
+        /* Continue styling other elements */
+    </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <div class="chat-title">
-                <h1>Чат</h1>
-            </div>
-            <div class="chat-buttons">
-                <button class="chat-button"><i class="fas fa-bars"></i></button>
-                <button class="chat-button"><i class="fas fa-search"></i></button>
-                <button class="chat-button"><i class="fas fa-ellipsis-h"></i></button>
-            </div>
-        </div>
-        <div class="chat-messages">
-            <div class="chat-message chat-message-incoming">
-                <div class="chat-message-author">Бот Gemini</div>
-                <div class="chat-message-text">Привет, Virt! Как я могу помочь тебе сегодня?</div>
-            </div>
-            <div class="chat-message chat-message-outgoing">
-                <div class="chat-message-author">Вы</div>
-                <div class="chat-message-text">Привет! Я хочу узнать больше о возможностях Gemini.</div>
-            </div>
-            </div>
-        <div class="chat-input">
-            <input type="text" class="chat-input-field" placeholder="Введите сообщение">
-            <button class="chat-input-button"><i class="fas fa-paper-plane"></i></button>
-            <button class="chat-input-button"><i class="fas fa-paperclip"></i></button>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <aside class="sidebar">
+        <!-- Sidebar content -->
+    </aside>
+    <main class="chat-container">
+        <header class="chat-header">
+            <!-- Chat header content -->
+        </header>
+        <section class="chat-content">
+            <!-- Chat content here -->
+        </section>
+        <footer class="chat-footer">
+            <form class="message-form">
+                <input type="text" placeholder="Enter a prompt here" aria-label="Enter a prompt">
+                <button type="button" aria-label="Attach image">📎</button>
+                <button type="submit" aria-label="Send message">➤</button>
+            </form>
+        </footer>
+    </main>
 </body>
 </html>
